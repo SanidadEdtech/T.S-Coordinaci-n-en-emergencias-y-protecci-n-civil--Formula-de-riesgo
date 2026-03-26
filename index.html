@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación y Medidas Preventivas – T.S. en Coordinación en Emergencias y Protección Civil | Recurso Didáctico</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variables Globales y Paleta de Colores */
+        :root {
+            --bg-color: #FFFFFF;
+            --primary-blue: #9B1C1C;
+            --primary-blue-light: #FDF2F2;
+            --emergency-orange: #C0392B;
+            --emergency-orange-light: #FEF0F0;
+            --prevention-green: #7B241C;
+            --prevention-green-light: #FCE8E8;
+            --neutral-gray: #FDF5F5;
+            --footer-bg: #1C0A0A;
+            --footer-text: #FFFFFF;
+            --text-dark: #1A0505;
+            --text-muted: #7A4040;
+            --border-color: #F0CDCD;
+            --border-radius: 14px;
+            --box-shadow: 0 8px 30px rgba(155, 28, 28, 0.10);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reseteo y Tipografía Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: var(--text-dark);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-blue);
+        }
+
+        /* ───── HERO HEADER ───── */
+        .hero-header {
+            background: linear-gradient(135deg, #4A0404 0%, #9B1C1C 50%, #C0392B 100%);
+            color: #fff;
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 50%, rgba(255,100,80,0.22) 0%, transparent 55%),
+                radial-gradient(circle at 85% 30%, rgba(200,40,20,0.18) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.35);
+            color: #FFD0CC;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.45rem 1.4rem;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-title span {
+            color: #FFAAAA;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-pills {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-pill {
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.30);
+            color: #fff;
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(4px);
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-pill:hover {
+            background: rgba(255,255,255,0.28);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            color: #fff;
+        }
+
+        /* ───── NAVBAR STICKY ───── */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(26,60,110,0.10);
+            z-index: 1000;
+            padding: 0.85rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, #9B1C1C, #C0392B, #E74C3C) 1;
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            color: var(--primary-blue);
+            font-size: 1.15rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .navbar-brand .brand-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #9B1C1C, #C0392B);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .navbar-links { display: flex; gap: 0.5rem; }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
+            background: #FEF0F0;
+            color: #9B1C1C;
+        }
+
+        /* ───── CONTENEDOR ───── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+        }
+
+        /* ───── SECTION BOX ───── */
+        .section-box {
+            background-color: var(--bg-color);
+            border-radius: 18px;
+            box-shadow: var(--box-shadow);
+            padding: 3rem;
+            margin-bottom: 4rem;
+            scroll-margin-top: 6rem;
+            border: 1px solid rgba(26,60,110,0.07);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            border-radius: 18px 18px 0 0;
+        }
+
+        #seccion-formula {
+            border-left: 6px solid var(--primary-blue);
+        }
+        #seccion-formula::after {
+            background: linear-gradient(90deg, var(--primary-blue), #4A80C4);
+        }
+
+        #seccion-comparativa {
+            border-left: 6px solid var(--emergency-orange);
+        }
+        #seccion-comparativa::after {
+            background: linear-gradient(90deg, var(--emergency-orange), #F4A261);
+        }
+
+        #seccion-casos {
+            border-left: 6px solid var(--prevention-green);
+        }
+        #seccion-casos::after {
+            background: linear-gradient(90deg, var(--prevention-green), #52B788);
+        }
+
+        /* ───── SECTION HEADER ───── */
+        .section-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            font-size: 1.75rem;
+        }
+
+        .section-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .icon-blue  { background: linear-gradient(135deg,#9B1C1C,#C0392B); color:#fff; }
+        .icon-orange{ background: linear-gradient(135deg,#C0392B,#E74C3C); color:#fff; }
+        .icon-green { background: linear-gradient(135deg,#7B241C,#9B1C1C); color:#fff; }
+
+        /* ───── TOOLTIP ───── */
+        .tooltip-trigger {
+            position: relative;
+            cursor: help;
+            border-bottom: 2px dotted var(--emergency-orange);
+            color: var(--primary-blue);
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .custom-tooltip {
+            position: absolute;
+            bottom: calc(100% + 15px);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: linear-gradient(135deg,#1A2F5A,#2D2D2D);
+            color: #ffffff;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            white-space: normal;
+            width: 290px;
+            text-align: center;
+            line-height: 1.5;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+            z-index: 200;
+            pointer-events: none;
+        }
+
+        .custom-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: #2D2D2D transparent transparent transparent;
+        }
+
+        .tooltip-trigger:hover .custom-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ───── FÓRMULA HERO ───── */
+        .formula-hero {
+            text-align: center;
+            margin: 2.5rem 0;
+            padding: 3.5rem;
+            background: linear-gradient(135deg, #4A0404 0%, #9B1C1C 55%, #C0392B 100%);
+            border-radius: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #fff;
+            box-shadow: 0 12px 40px rgba(155,28,28,0.30);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formula-hero::before {
+            content: 'R = P × V × E';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(5rem, 14vw, 11rem);
+            font-weight: 900;
+            color: rgba(255,255,255,0.03);
+            pointer-events: none;
+            letter-spacing: 8px;
+        }
+
+        .formula-hero .var-p { color: #FFB3AD; text-shadow: 0 0 30px rgba(255,120,100,0.7); }
+        .formula-hero .var-v { color: #FFE0DE; text-shadow: 0 0 30px rgba(255,180,170,0.7); }
+        .formula-hero .var-e { color: #FF7C72; text-shadow: 0 0 30px rgba(255,80,60,0.7); }
+
+        .formula-legend {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 1.75rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ───── TABLE ───── */
+        .interactive-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 2rem;
+            background: var(--bg-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(26,60,110,0.08);
+        }
+
+        .interactive-table th, .interactive-table td {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #EEF2F8;
+        }
+
+        .interactive-table th {
+            background: linear-gradient(135deg, #9B1C1C, #6B0E0E);
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background var(--transition);
+            white-space: nowrap;
+        }
+
+        .interactive-table th:hover { background: linear-gradient(135deg,#6B0E0E,#4A0404); }
+
+        .interactive-table th i.sort-icon {
+            margin-left: 0.5rem;
+            opacity: 0.6;
+            font-size: 0.85rem;
+        }
+
+        .interactive-table tbody tr {
+            transition: all 0.25s ease;
+        }
+
+        .interactive-table tbody tr:last-child td { border-bottom: none; }
+
+        .interactive-table tbody tr:hover {
+            background: #FDF2F2;
+            transform: translateX(5px);
+        }
+
+        /* Row accents S1 */
+        .row-p { border-left: 5px solid #C0392B; }
+        .row-v { border-left: 5px solid #9B1C1C; }
+        .row-e { border-left: 5px solid #7B241C; }
+
+        .explanation-card {
+            margin-top: 2.5rem;
+            background: linear-gradient(135deg,#FDF2F2,#FFF5F5);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #F0CDCD;
+        }
+
+        .explanation-card h4 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #9B1C1C;
+            font-size: 1.1rem;
+        }
+
+        /* ───── SECTION 2 FILTERS ───── */
+        .filters-container {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-filter {
+            background-color: var(--neutral-gray);
+            color: var(--text-dark);
+            border: 2px solid transparent;
+            padding: 0.7rem 1.6rem;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-filter.active, .btn-filter:hover {
+            background: linear-gradient(135deg, #9B1C1C, #C0392B);
+            color: #FFFFFF;
+            border-color: transparent;
+            box-shadow: 0 4px 16px rgba(155, 28, 28, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .badge-low    { background:#FEF0F0; color:#7B241C; border: 1px solid #F5C6C6; }
+        .badge-medium { background:#FFF5F5; color:#9B1C1C; border: 1px solid #F0CDCD; }
+        .badge-high   { background:#FFEBEE; color:#6B0E0E; border: 1px solid #E57373; }
+
+        .category-icon { margin-right: 0.5rem; color: var(--primary-blue); }
+
+        /* Fade-in animation */
+        .fade-in-row { animation: fadeInRow 0.45s ease forwards; }
+
+        @keyframes fadeInRow {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ───── ACCORDION CARDS S3 ───── */
+        .accordion-container { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .card {
+            border: 1px solid #DDE6F5;
+            border-radius: 16px;
+            background-color: var(--bg-color);
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(26,60,110,0.07);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover { box-shadow: 0 8px 28px rgba(26,60,110,0.13); transform: translateY(-2px); }
+
+        .card-header {
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg,#FFF5F5,#FDF2F2);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            user-select: none;
+        }
+
+        .card-header:hover { background: linear-gradient(135deg,#FDF2F2,#FDEAEA); }
+
+        .card-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .card-title-wrapper h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+        }
+
+        .card-icon {
+            flex-shrink: 0;
+            transition: transform 0.4s ease;
+            color: #9B1C1C;
+            font-size: 1.2rem;
+            background: #FDF2F2;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card.active .card-icon { transform: rotate(180deg); }
+
+        .card-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-content {
+            padding: 2rem;
+            border-top: 2px solid #F5DADA;
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .scenario-item {
+            background: linear-gradient(135deg,#FFF5F5,#FDF2F2);
+            border: 1px solid #F0CDCD;
+            padding: 1.5rem;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .scenario-item strong {
+            display: block;
+            margin-bottom: 0.75rem;
+            color: #9B1C1C;
+            font-size: 1.05rem;
+        }
+
+        .question-banner {
+            background: linear-gradient(135deg,#FFF0F0,#FFDEDE);
+            border-left: 5px solid #C0392B;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #6B0E0E;
+            border-radius: 6px;
+        }
+
+        .btn-solution {
+            background: linear-gradient(135deg, #9B1C1C, #C0392B);
+            color: #FFFFFF;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto 1.5rem auto;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 16px rgba(155,28,28,0.25);
+        }
+
+        .btn-solution:hover {
+            background: linear-gradient(135deg, #6B0E0E, #9B1C1C);
+            box-shadow: 0 6px 20px rgba(155,28,28,0.40);
+            transform: translateY(-2px);
+        }
+
+        .solution-panel {
+            background: linear-gradient(135deg,#FFF8F8,#FDF2F2);
+            border: 2px dashed #9B1C1C;
+            padding: 2rem;
+            border-radius: 14px;
+            display: none;
+        }
+
+        .difficulty-badge {
+            padding: 0.4rem 1.1rem;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .diff-basic        { background:#FEF6F6; color:#7B241C; border-color:#F5C6C6; }
+        .diff-intermediate { background:#FDF0F0; color:#9B1C1C; border-color:#E57373; }
+        .diff-advanced     { background:#FFEBEE; color:#6B0E0E; border-color:#C62828; }
+
+        /* ───── FOOTER ───── */
+        .site-footer {
+            background: linear-gradient(135deg,#4A0404,#1C0A0A);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1.05rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--footer-text);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.6rem 1.25rem;
+            border-radius: 20px;
+        }
+
+        .footer-link:hover {
+            color: #FFAAAA;
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        .footer-separator { color: #555; }
+
+        /* ───── RESPONSIVE ───── */
+        @media (max-width: 900px) {
+            .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .section-box { padding: 1.75rem; }
+            .interactive-table th, .interactive-table td { padding: 1rem; }
+            .formula-hero { padding: 2rem; }
+            .card-title-wrapper { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+            .hero-header { padding: 3.5rem 1.5rem 3rem; }
+        }
+
+        @media (max-width: 600px) {
+            .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .filters-container { justify-content: center; }
+            .btn-filter { width: 100%; text-align: center; }
+            .card-header { padding: 1.25rem 1rem; }
+            .card-content { padding: 1.25rem 1rem; }
+            .formula-legend { gap: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <div class="hero-badge">📚 Recurso Didáctico Interactivo · CFGS</div>
+        <h1 class="hero-title">
+            Evaluación y <span>Medidas Preventivas</span>
+        </h1>
+        <p class="hero-subtitle">
+            T.S. en Coordinación en Emergencias y Protección Civil &nbsp;·&nbsp; La Fórmula del Riesgo: R = P × V × E
+        </p>
+        <div class="hero-pills">
+            <span class="hero-pill"><i class="fa-solid fa-calculator"></i> Fórmula del Riesgo</span>
+            <span class="hero-pill"><i class="fa-solid fa-layer-group"></i> Tipos de Riesgo</span>
+            <span class="hero-pill"><i class="fa-solid fa-vial-circle-check"></i> Casos Prácticos</span>
+        </div>
+    </header>
+
+    <!-- Navegación Sticky -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>
+            Emergencias y Protección Civil
+        </a>
+        <div class="navbar-links">
+            <a href="#seccion-formula" class="nav-link"><i class="fa-solid fa-calculator"></i> Fórmula</a>
+            <a href="#seccion-comparativa" class="nav-link"><i class="fa-solid fa-table-list"></i> Tipos de Riesgo</a>
+            <a href="#seccion-casos" class="nav-link"><i class="fa-solid fa-clipboard-list"></i> Casos Prácticos</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- SECCIÓN 1: Fórmula del Riesgo -->
+        <section id="seccion-formula" class="section-box">
+            <h2 class="section-header">
+                <span class="section-icon icon-blue"><i class="fa-solid fa-square-root-variable"></i></span>
+                🧮 La Fórmula del Riesgo: R = P × V × E
+            </h2>
+            
+            <div class="formula-hero">
+                R = <span class="var-p">P</span> × <span class="var-v">V</span> × <span class="var-e">E</span>
+                <div class="formula-legend">
+                    <span class="legend-item"><span class="legend-dot" style="background:#FFA040;"></span> P = Peligrosidad</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:#7EC8F7;"></span> V = Vulnerabilidad</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:#6EE875;"></span> E = Exposición</span>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="interactive-table">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 25%;">Componente</th>
+                            <th scope="col" style="width: 40%;">Definición Técnica (CFGS)</th>
+                            <th scope="col" style="width: 35%;">Factores y Ejemplos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-p">
+                            <td>
+                                <strong><i class="fa-solid fa-triangle-exclamation" style="color: var(--emergency-orange);"></i> Peligrosidad (P)</strong>
+                            </td>
+                            <td>
+                                Probabilidad de ocurrencia de un fenómeno potencialmente destructivo en un tiempo y espacio dados.
+                            </td>
+                            <td>
+                                <em>Factores determinantes:</em> Intensidad, magnitud, 
+                                <span class="tooltip-trigger">Periodo de retorno
+                                    <span class="custom-tooltip">Tiempo promedio o calculado que transcurre entre eventos de una misma magnitud o intensidad en una zona específica.</span>
+                                </span>.<br><br>
+                                <em>Ej.:</em> Riadas recurrentes derivadas de episodios torrenciales, fallas sísmicas activas.
+                            </td>
+                        </tr>
+                        <tr class="row-v">
+                            <td>
+                                <strong><i class="fa-solid fa-house-crack" style="color: var(--primary-blue);"></i> Vulnerabilidad (V)</strong>
+                            </td>
+                            <td>
+                                Grado de susceptibilidad o propensión de los elementos y sistemas expuestos a sufrir daños y pérdidas.
+                            </td>
+                            <td>
+                                <em>Factores determinantes:</em> Resistencia estructural, nivel de educación, planificación urbana preventiva.<br><br>
+                                <em>Ej.:</em> Edificaciones construidas sin obedecer normas sismorresistentes, poblaciones sin formación en autoprotección.
+                            </td>
+                        </tr>
+                        <tr class="row-e">
+                            <td>
+                                <strong><i class="fa-solid fa-users-rays" style="color: var(--prevention-green);"></i> Exposición (E)</strong>
+                            </td>
+                            <td>
+                                Cantidad de personas, bienes, infraestructuras y medio ambiente presentes de facto en la zona de impacto.
+                            </td>
+                            <td>
+                                <em>Factores determinantes:</em> Densidad de población, valor económico, importancia estratégica.<br><br>
+                                <em>Ej.:</em> Gran área metropolitana asentada en la llanura de inundación de un río caudaloso.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="explanation-card">
+                <h4><i class="fa-solid fa-circle-info"></i> Interacción y Gestión del Riesgo</h4>
+                <p>
+                    El Riesgo (<strong>R</strong>) es el resultado de la interacción matemática (multiplicación) de estos tres factores. Si cualquiera de los componentes es cero, el riesgo es nulo. Por ejemplo, en un desierto despoblado, una 
+                    <span class="tooltip-trigger">Peligrosidad
+                        <span class="custom-tooltip">Probabilidad de ocurrencia de un evento destructivo. Sin exposición ni vulnerabilidad, el riesgo es nulo.</span>
+                    </span> extrema no genera Riesgo porque la 
+                    <span class="tooltip-trigger">Exposición
+                        <span class="custom-tooltip">Presencia de seres vivos, bienes e infraestructuras en zonas de amenaza.</span>
+                    </span> es cero.<br><br>
+                    En Protección Civil y Coordinación en Emergencias, dado que los fenómenos naturales (P) son generalmente incontrolables, las estrategias se enfocan en mitigar la 
+                    <span class="tooltip-trigger">Vulnerabilidad
+                        <span class="custom-tooltip">Condición intrínseca de debilidad ante un peligro provocado por múltiples factores sociales o físicos.</span>
+                    </span> de las estructuras o comunidades y en reducir drásticamente la Exposición a través de la evacuación y la ordenación del territorio inteligente.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: TABLA COMPARATIVA -->
+        <section id="seccion-comparativa" class="section-box">
+            <h2 class="section-header">
+                <span class="section-icon icon-orange"><i class="fa-solid fa-layer-group"></i></span>
+                📊 Tabla Comparativa de Tipos de Riesgo
+            </h2>
+            
+            <div class="filters-container">
+                <button class="btn-filter active" data-filter="all">Todos los Riesgos</button>
+                <button class="btn-filter" data-filter="naturales">Riesgos Naturales</button>
+                <button class="btn-filter" data-filter="tecnologicos">Tecnológicos e Industriales</button>
+                <button class="btn-filter" data-filter="antropicos">Antrópicos y Sociales</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="interactive-table" id="tablaRiesgos">
+                    <thead>
+                        <tr>
+                            <th scope="col" onclick="sortTable(0)">Tipo de Riesgo <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th scope="col" onclick="sortTable(1)">Categoría <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th scope="col">Ejemplo Real</th>
+                            <th scope="col" onclick="sortTable(3)">Nivel Peligrosidad <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th scope="col">Medida Preventiva Clave</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaRiesgosBody">
+                        <!-- Riesgos Naturales -->
+                        <tr data-category="naturales">
+                            <td>Inundación Relámpago (Flash Flood)</td>
+                            <td><i class="fa-solid fa-cloud-showers-water category-icon"></i> Natural (Meteo)</td>
+                            <td>DANA severa colapsando cuencas urbanas en el Levante</td>
+                            <td><span class="badge badge-high" data-sortval="3">Alto</span></td>
+                            <td>Sistemas de Alerta Temprana (SAT) y planes de evacuación.</td>
+                        </tr>
+                        <tr data-category="naturales">
+                            <td>Sismo de Magnitud 7.0</td>
+                            <td><i class="fa-solid fa-house-chimney-crack category-icon"></i> Natural (Geofísico)</td>
+                            <td>Colapso de edificios por falla tectónica activa</td>
+                            <td><span class="badge badge-high" data-sortval="3">Alto</span></td>
+                            <td>Normativa de Construcción Sismorresistente estricta.</td>
+                        </tr>
+                        <tr data-category="naturales">
+                            <td>Ola de Calor Extrema</td>
+                            <td><i class="fa-solid fa-temperature-arrow-up category-icon"></i> Natural (Meteo)</td>
+                            <td>Temperaturas sostenidas >40ºC durante un mes</td>
+                            <td><span class="badge badge-medium" data-sortval="2">Medio</span></td>
+                            <td>Creación de refugios climáticos e información sanitaria oportuna.</td>
+                        </tr>
+
+                        <!-- Riesgos Tecnológicos -->
+                        <tr data-category="tecnologicos">
+                            <td>Fuga de Cloro en Planta</td>
+                            <td><i class="fa-solid fa-biohazard category-icon"></i> Tecnológico (Químico)</td>
+                            <td>Nube tóxica superando rápidamente umbrales 
+                                <span class="tooltip-trigger">AEGL
+                                    <span class="custom-tooltip">Acute Exposure Guideline Levels: Niveles estandarizados de concentración de químicos en el aire y su efecto temporal sobre la salud humana.</span>
+                                </span>
+                            </td>
+                            <td><span class="badge badge-high" data-sortval="3">Alto</span></td>
+                            <td>Confinamiento inmediato y sirenas del Plan de Emergencia Exterior.</td>
+                        </tr>
+                        <tr data-category="tecnologicos">
+                            <td>Explosión en Depósito GLP</td>
+                            <td><i class="fa-solid fa-fire-flame-curved category-icon"></i> Tecnológico (Fuego)</td>
+                            <td>Onda de sobrepresión e irradiación térmica por 
+                                <span class="tooltip-trigger">BLEVE
+                                    <span class="custom-tooltip">Boiling Liquid Expanding Vapor Explosion: Explosión devastadora que ocurre cuando falla catastróficamente un recipiente presurizado expuesto al fuego.</span>
+                                </span>
+                            </td>
+                            <td><span class="badge badge-high" data-sortval="3">Alto</span></td>
+                            <td>Refrigeración por diluvio y distanciamientos de seguridad adecuados.</td>
+                        </tr>
+                        <tr data-category="tecnologicos">
+                            <td>Derrame Marítimo de Hidrocarburos</td>
+                            <td><i class="fa-solid fa-oil-can category-icon"></i> Tecnológico (Transp.)</td>
+                            <td>Naufragio de buque cisterna impactando zona protegida</td>
+                            <td><span class="badge badge-medium" data-sortval="2">Medio</span></td>
+                            <td>Barreras de contención, skimmers y simulación de derivas marinas.</td>
+                        </tr>
+
+                        <!-- Riesgos Antrópicos/Sociales -->
+                        <tr data-category="antropicos">
+                            <td>Pánico Colectivo en Masa</td>
+                            <td><i class="fa-solid fa-people-arrows category-icon"></i> Antrópico (Social)</td>
+                            <td>Aplazamientos por avalancha en mega-festival de música urbana</td>
+                            <td><span class="badge badge-high" data-sortval="3">Alto</span></td>
+                            <td>Control tecnológico de aforos y megafonía de alta inteligibilidad.</td>
+                        </tr>
+                        <tr data-category="antropicos">
+                            <td>Accidente de Tráfico Múltiple</td>
+                            <td><i class="fa-solid fa-car-burst category-icon"></i> Antrópico (Infraes.)</td>
+                            <td>Colisión en cadena de 50 vehículos derivado de niebla densa</td>
+                            <td><span class="badge badge-low" data-sortval="1">Bajo</span></td>
+                            <td>Paneles de Mensaje Variable (PMV) y limitación dinámica de velocidad.</td>
+                        </tr>
+                        <tr data-category="antropicos">
+                            <td>Incendio en Edificación en Altura</td>
+                            <td><i class="fa-solid fa-building-circle-exclamation category-icon"></i> Antrópico (Urbano)</td>
+                            <td>Fuego de rápida propagación vertical por fachada ventilada</td>
+                            <td><span class="badge badge-high" data-sortval="3">Alto</span></td>
+                            <td>Compartimentación impecable de sectores de incendio y vías de escape.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: CASOS PRÁCTICOS -->
+        <section id="seccion-casos" class="section-box">
+            <h2 class="section-header">
+                <span class="section-icon icon-green"><i class="fa-solid fa-vial-circle-check"></i></span>
+                🧩 Casos Prácticos y Simulaciones
+            </h2>
+            
+            <div class="accordion-container">
+                
+                <!-- CASO 1 -->
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-title-wrapper">
+                            <span class="difficulty-badge diff-basic">🟢 Básico</span>
+                            <h3>CASO 1: Inundación en zona urbana densamente poblada</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down card-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-content">
+                            <div class="scenario-grid">
+                                <div class="scenario-item">
+                                    <strong><i class="fa-solid fa-cloud-bolt"></i> Peligrosidad (P)</strong>
+                                    Lluvias torrenciales estáticas de 220 mm en 4 horas. (Nivel Alto)
+                                </div>
+                                <div class="scenario-item">
+                                    <strong><i class="fa-solid fa-house-flood-water"></i> Vulnerabilidad (V)</strong>
+                                    Construcciones irregulares en la llanura de inundación del río. (Nivel Alto)
+                                </div>
+                                <div class="scenario-item">
+                                    <strong><i class="fa-solid fa-users"></i> Exposición (E)</strong>
+                                    Barrio con 45.000 residentes sin vías alternativas de salida. (Nivel Alto)
+                                </div>
+                            </div>
+                            
+                            <div class="question-banner">
+                                <i class="fa-solid fa-circle-question" style="color: var(--emergency-orange);"></i> 
+                                ¿Cuál es el nivel de riesgo resultante si aplicamos la fórmula R = P × V × E?
+                            </div>
+                            
+                            <button class="btn-solution" onclick="showSolution(this)">
+                                <i class="fa-solid fa-unlock-keyhole"></i> Revelar Cálculo y Solución
+                            </button>
+                            
+                            <div class="solution-panel">
+                                <h4 style="color: var(--prevention-green); margin-bottom: 1rem;">
+                                    <i class="fa-solid fa-check"></i> Riesgo Extremo Inasumible
+                                </h4>
+                                <p><strong>Justificación:</strong> Al ser la multiplicación de factores todos ellos de valor 'Alto', el riesgo final se eleva algorítmicamente a niveles críticos. No hay mitigación natural. Una emergencia grave está asegurada sin intervención previa.</p>
+                                <p style="margin-top: 1rem;">
+                                    <strong><i class="fa-solid fa-shield"></i> Medidas Preventivas (Actuación):</strong> 
+                                    Dado que no podemos disminuir la lluvia (P) ni modificar las estructuras (V) en escasas horas, la operación prioritaria en Emergencias y Protección Civil será <strong>reducir drásticamente la Exposición (E)</strong> mediante la orden de evacuación vertical o desalojo preventivo integral coordinado.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASO 2 -->
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-title-wrapper">
+                            <span class="difficulty-badge diff-intermediate">🟡 Intermedio</span>
+                            <h3>CASO 2: Fuga de gas tóxico en polígono industrial</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down card-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-content">
+                            <div class="scenario-grid">
+                                <div class="scenario-item">
+                                    <strong><i class="fa-solid fa-gas-pump"></i> Peligrosidad (P)</strong>
+                                    Rotura de válvula crítica liberando cloruro de hidrógeno letal. (Nivel Alto)
+                                </div>
+                                <div class="scenario-item">
+                                    <strong><i class="fa-solid fa-mask-face"></i> Vulnerabilidad (V)</strong>
+                                    Planta blindada, personal con Equipos de Protección Autónoma. (Nivel Bajo)
+                                </div>
+                                <div class="scenario-item">
+                                    <strong><i class="fa-solid fa-industry"></i> Exposición (E)</strong>
+                                    Planta perimetrada en zona desierta. Solo operarios esenciales presentes. (Nivel Bajo)
+                                </div>
+                            </div>
+                            
+                            <div class="question-banner">
+                                <i class="fa-solid fa-circle-question" style="color: var(--emergency-orange);"></i> 
+                                A pesar de la altísima toxicidad de la sustancia involucrada, ¿cuál es el nivel de riesgo resultante?
+                            </div>
+                            
+                            <button class="btn-solution" onclick="showSolution(this)">
+                                <i class="fa-solid fa-unlock-keyhole"></i> Revelar Cálculo y Solución
+                            </button>
+                            
+                            <div class="solution-panel">
+                                <h4 style="color: var(--prevention-green); margin-bottom: 1rem;">
+                                    <i class="fa-solid fa-check"></i> Riesgo Moderado de Carácter Mitigado
+                                </h4>
+                                <p><strong>Justificación:</strong> Aunque el agente material es peligroso (P Alto), las medidas profilácticas reducen la susceptibilidad a los daños en el factor V al mínimo, y al estar automatizado hay casi nula Exposición (E). <code>Alto × Bajo × Bajo = Riesgo Moderado</code>.</p>
+                                <p style="margin-top: 1rem;">
+                                    <strong><i class="fa-solid fa-shield"></i> Medidas Preventivas (Actuación):</strong> 
+                                    Activación rigurosa del Plan de Emergencia Interior (PEI), uso estricto de EPIs y comprobación de estanqueidad. Es un claro ejemplo de cómo la inversión en prevención disminuye radicalmente las variables V y E.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASO 3 -->
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-title-wrapper">
+                            <span class="difficulty-badge diff-advanced">🔴 Avanzado</span>
+                            <h3>CASO 3: Evento multitudinario (concierto) con pánico colectivo</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down card-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-content">
+                            <div class="scenario-grid">
+                                <div class="scenario-item">
+                                    <strong><i class="fa-solid fa-fire-extinguisher"></i> Peligrosidad (P)</strong>
+                                    Mínimo conato de incendio en un altavoz extinguido en 20 segundos. (Nivel Bajo)
+                                </div>
+                                <div class="scenario-item">
+                                    <strong><i class="fa-solid fa-person-falling-burst"></i> Vulnerabilidad (V)</strong>
+                                    Vías de escape mal iluminadas y personal sin formación en seguridad. (Nivel Alto)
+                                </div>
+                                <div class="scenario-item">
+                                    <strong><i class="fa-solid fa-people-group"></i> Exposición (E)</strong>
+                                    18.000 asistentes concentrados en un aforo excesivamente denso. (Nivel Alto)
+                                </div>
+                            </div>
+                            
+                            <div class="question-banner">
+                                <i class="fa-solid fa-circle-question" style="color: var(--emergency-orange);"></i> 
+                                Si el incendio fue extinguido de inmediato sin causar daño térmico, ¿cuál es el diagnóstico operativo real del riesgo?
+                            </div>
+                            
+                            <button class="btn-solution" onclick="showSolution(this)">
+                                <i class="fa-solid fa-unlock-keyhole"></i> Revelar Cálculo y Solución
+                            </button>
+                            
+                            <div class="solution-panel">
+                                <h4 style="color: var(--prevention-green); margin-bottom: 1rem;">
+                                    <i class="fa-solid fa-check"></i> Riesgo Alto por Mutación Antrópica del Peligro
+                                </h4>
+                                <p><strong>Justificación:</strong> El peligro primario (Fuego - Bajo) se disipó, pero fue sustituido en milisegundos por un peligro secundario mucho más destructivo: el <strong>comportamiento de masas irracional (Pánico)</strong>, el cual catalizó sobre un recinto inseguro (V Alto) y atestado (E Alto). Este es el clásico efecto dominó fatal.</p>
+                                <p style="margin-top: 1rem;">
+                                    <strong><i class="fa-solid fa-shield"></i> Medidas Preventivas (Actuación):</strong> 
+                                    La actuación fundamental de Protección Civil aquí es la intervención comunicativa. Parar la música y utilizar de forma inmediata y fidedigna la megafonía para instrucciones asertivas dictadas por el Director de Emergencia, controlando el flujo y restableciendo el orden para anular el pánico (V).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <span style="font-family: 'Poppins', sans-serif;">Creado por V. López</span>
+            <span class="footer-separator">|</span>
+            <a href="https://sanidadedtech.es/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                <i class="fa-solid fa-link"></i> @sanidadedtech
+            </a>
+        </div>
+    </footer>
+
+    <!-- Lógica de Interactividad JS Vainilla -->
+    <script>
+        // --- 1. Filtrado Interactivo de la Tabla (Sección 2) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.btn-filter');
+            const tableRows = document.querySelectorAll('#tablaRiesgosBody tr');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Actualizar botón activo
+                    document.querySelector('.btn-filter.active').classList.remove('active');
+                    button.classList.add('active');
+
+                    const targetCategory = button.getAttribute('data-filter');
+
+                    tableRows.forEach(row => {
+                        const rowCategory = row.getAttribute('data-category');
+                        
+                        // Quitar clase de animación previa para reiniciar el DOM
+                        row.classList.remove('fade-in-row');
+                        void row.offsetWidth; // Forzar reflow
+
+                        if (targetCategory === 'all' || targetCategory === rowCategory) {
+                            row.style.display = '';
+                            row.classList.add('fade-in-row');
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+
+        // --- 2. Lógica del Acordeón para Tarjetas (Sección 3) ---
+        function toggleCard(headerElement) {
+            const cardElement = headerElement.parentElement;
+            const bodyElement = cardElement.querySelector('.card-body');
+
+            // Cierra todas las demás tarjetas
+            document.querySelectorAll('.card').forEach(c => {
+                if (c !== cardElement) {
+                    c.classList.remove('active');
+                    c.querySelector('.card-body').style.maxHeight = null;
+                }
+            });
+
+            // Toggle la tarjeta actual
+            cardElement.classList.toggle('active');
+
+            if (cardElement.classList.contains('active')) {
+                // Expandir - Usamos un tamaño amplio para asegurar que todo encaja, incluyendo animaciones internas
+                bodyElement.style.maxHeight = bodyElement.scrollHeight + 300 + "px";
+            } else {
+                // Colapsar
+                bodyElement.style.maxHeight = null;
+
+                // Opcional: Ocultar solución al colapsar para que esté lista para próximo click
+                setTimeout(() => {
+                    const solPanel = cardElement.querySelector('.solution-panel');
+                    const btnSol = cardElement.querySelector('.btn-solution');
+                    if (solPanel && btnSol) {
+                        solPanel.style.display = 'none';
+                        btnSol.style.display = 'block';
+                    }
+                }, 500); // Mismo tiempo que la transición css
+            }
+        }
+
+        // --- 3. Revelar Solución Justificada (Sección 3) ---
+        function showSolution(buttonElement) {
+            const solutionPanel = buttonElement.nextElementSibling; // El div consecutivo
+            
+            solutionPanel.style.display = 'block';
+            solutionPanel.classList.add('fade-in-row'); // Reciclando animación
+            
+            buttonElement.style.display = 'none';
+
+            // Actualizar la altura del padre acordeón
+            const parentBody = buttonElement.closest('.card-body');
+            setTimeout(() => {
+                parentBody.style.maxHeight = parentBody.scrollHeight + "px";
+            }, 50);
+        }
+
+        // --- 4. Ordenación Dinámica de Columnas (Sección 2) ---
+        let colSortDirections = [true, true, true, true, true]; // True = Ascendente
+
+        function sortTable(colIndex) {
+            const tbody = document.getElementById("tablaRiesgosBody");
+            const rowsArray = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Separar filas visibles e invisibles por filtro
+            const visibleRows = rowsArray.filter(row => row.style.display !== 'none');
+            const hiddenRows = rowsArray.filter(row => row.style.display === 'none');
+
+            let isAscending = colSortDirections[colIndex];
+            colSortDirections[colIndex] = !isAscending;
+
+            visibleRows.sort((trA, trB) => {
+                let valA, valB;
+
+                if (colIndex === 3) {
+                    // Lógica especial para Nivel de Peligrosidad (badges)
+                    valA = parseInt(trA.cells[colIndex].querySelector('span').getAttribute('data-sortval'), 10);
+                    valB = parseInt(trB.cells[colIndex].querySelector('span').getAttribute('data-sortval'), 10);
+                } else {
+                    // Lógica normal de texto
+                    valA = trA.cells[colIndex].textContent.trim().toLowerCase();
+                    valB = trB.cells[colIndex].textContent.trim().toLowerCase();
+                }
+
+                if (valA < valB) return isAscending ? -1 : 1;
+                if (valA > valB) return isAscending ? 1 : -1;
+                return 0;
+            });
+
+            // Reensamblar filas
+            tbody.innerHTML = '';
+            
+            visibleRows.forEach(row => {
+                row.classList.remove('fade-in-row');
+                void row.offsetWidth; // Reflow
+                row.classList.add('fade-in-row');
+                tbody.appendChild(row);
+            });
+            
+            hiddenRows.forEach(row => tbody.appendChild(row));
+
+            // Actualizar flechas de ordenación visuales
+            const headers = document.querySelectorAll('#tablaRiesgos th');
+            headers.forEach(th => {
+                const icon = th.querySelector('.sort-icon');
+                if (icon) icon.className = "fa-solid fa-sort sort-icon"; // resetear
+            });
+
+            const currentIcon = headers[colIndex].querySelector('.sort-icon');
+            if (currentIcon) {
+                currentIcon.className = isAscending ? "fa-solid fa-sort-up sort-icon" : "fa-solid fa-sort-down sort-icon";
+            }
+        }
+    </script>
+</body>
+</html>
