@@ -35,4 +35,4 @@ Este material se distribuye bajo la licencia **CC BY-NC 4.0**: puedes usarlo y a
 
 Creado por **Vera López**, enfermera de emergencias, profesora de FP y fundadora de [SanidadEdTech](https://sanidadedtech.es).
 
-[CV](https://sobremi.sanidadedtech.es) · [LinkedIn](https://www.linkedin.com/in/vera-l%C3%B3pez-15603625a/) · [GitHub](https://github.com/SanidadEdtech)
+[CV](https://sobremi.sanidadedtech.es) · [LinkedIn](https://www.linkedin.com/in/veralopez-sanidadedtech/) · [GitHub](https://github.com/SanidadEdtech)
